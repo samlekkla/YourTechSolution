@@ -1,0 +1,64 @@
+﻿/* YourTechSolution.styles.css */
+
+/* Hela sidans bakgrundsfärg och textfärg */
+body {
+    background-color: #f4f4f4; /* Ljusgrå bakgrundsfärg */
+    color: #333; /* Mörk textfärg */
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Generisk typsnittsfamilj */
+}
+
+/* Stilar för navigationsfältet */
+.navbar {
+    background-color: #007bff; /* Mörkblå bakgrundsfärg för navigationsfältet */
+    border-bottom: 1px solid #0056b3; /* Ljusare linje under navigationsfältet */
+}
+
+/* Stilar för navigationslänkar i navigationsfältet */
+.navbar-nav .nav-link {
+    color: #fff !important; /* Vit textfärg för navigationslänkar (important för att överskugga Bootstrap-stilar) */
+    font-weight: 600; /* Fet text */
+}
+
+    /* Hover-effekt för navigationslänkar */
+    .navbar-nav .nav-link:hover {
+        color: #e0e0e0 !important; /* Ljusare vit textfärg vid hover-effekt */
+    }
+
+/* Stilar för menyn på mindre skärmar (till exempel mobil) */
+.navbar-toggler-icon {
+    background-color: #fff; /* Vit bakgrundsfärg för hamburger-ikonen */
+}
+
+/* Menyns bakgrundsfärg när öppnad på mindre skärmar */
+.navbar-collapse {
+    background-color: #007bff; /* Mörkblå bakgrundsfärg för menyn när öppnad */
+}
+
+    /* Stilar för menylänkar på mindre skärmar */
+    .navbar-collapse .navbar-nav .nav-link {
+        color: #fff !important; /* Vit textfärg för menylänkar när öppnad (important för att överskugga Bootstrap-stilar) */
+        font-weight: 600; /* Fet text */
+    }
+
+        /* Hover-effekt för menylänkar på mindre skärmar */
+        .navbar-collapse .navbar-nav .nav-link:hover {
+            color: #e0e0e0 !important; /* Ljusare vit textfärg vid hover-effekt på mindre skärmar */
+        }
+
+/* Stilar för formulärfält */
+.form-group {
+    margin-bottom: 20px; /* Mellanrum under formulärfält */
+}
+
+.form-control {
+    padding: 10px; /* Fyllning inuti formulärfält */
+}
+
+/* Stilar för sidfoten */
+.footer {
+    background-color: #343a40; /* Mörkgrå bakgrundsfärg för sidfoten */
+    color: #fff; /* Vit textfärg för sidfoten */
+    padding: 30px 0; /* Mellanrum inuti sidfoten */
+}
+
+/* Lägg till fler anpassningar efter behov */

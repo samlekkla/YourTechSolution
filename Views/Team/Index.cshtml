@@ -1,0 +1,21 @@
+﻿@model List<Team>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Team team in Model)
+        {
+            <tr>
+                <td>@team.Name</td>
+                <td>@team.Position</td>
+                <td><img src="~/images/@team.Image" alt="Bild" style="max-width: 100px; max-height: 100px;" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
