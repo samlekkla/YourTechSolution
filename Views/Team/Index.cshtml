@@ -1,4 +1,4 @@
-﻿@model List<Team>
+﻿@model TeamViewModel
 
 <table class="table">
     <thead>
@@ -9,7 +9,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (Team team in Model)
+        @foreach (Team team in Model.Teams)
         {
             <tr>
                 <td>@team.Name</td>

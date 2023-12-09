@@ -1,25 +1,12 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using MongoDB.Driver;
 
 public class Startup
 {
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddControllersWithViews();
-    }
-
-    public void Configure(IApplicationBuilder app)
-    {
-        app.UseRouting();
-
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
-        });
-    }
-    
     public Startup(IConfiguration configuration)
     {
         Configuration = configuration;
@@ -27,7 +14,21 @@ public class Startup
 
     public IConfiguration Configuration { get; }
 
-   
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // Lägg till MVC-tjänster
+        services.AddControllersWithViews();
+
+        // Konfigurera MongoDB-anslutningen
+        var mongoConnection = Configuration.GetConnectionString("MongoConnection");
+        services.AddSingleton<IMongoClient>(new MongoClient(mongoConnection));
+        services.AddSingleton<IMongoDatabase>(provider =>
+        {
+            var client = provider.GetRequiredService<IMongoClient>();
+            return client.GetDatabase("YourTechSolutionDB"); // Byt ut mot din databasnamn
+        });
+    }
+
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         if (env.IsDevelopment())
@@ -53,4 +54,3 @@ public class Startup
         });
     }
 }
-

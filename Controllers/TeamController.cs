@@ -4,22 +4,25 @@ using YourTechSolution.Models;
 
 public class TeamController : Controller
 {
+    public List<Team> Teams { get; }
+
     public IActionResult Index()
     {
-        List<Team> teamLista = InitializeTeam();
-        return View(teamLista);
+        var teamList = InitializeTeam(); // Replace this with logic to get the team list
+        var teamViewModel = new TeamViewModel { Teams = teamList };
+        return View(teamViewModel);
     }
 
     private List<Team> InitializeTeam()
     {
-        // Skapa och fyll listan med medarbetarinformation
+        // Create and populate the list with team information
         return new List<Team>
         {
-            new Team { Name = "John Doe", Position = "Developer" , Image = "Guy.jpg" },
+            new Team { Name = "John Doe", Position = "Developer", Image = "Guy.jpg" },
             new Team { Name = "Jane Doe", Position = "Designer", Image = "Guy.jpg" },
             new Team { Name = "Anne Doe", Position = "Administrator", Image = "Guy.jpg" },
-            new Team { Name = "Sia Doe", Position = "Technichian", Image = "Guy.jpg" },
-            // Lägg till fler medarbetare här
+            new Team { Name = "Sia Doe", Position = "Technician", Image = "Guy.jpg" }
+            
         };
     }
 }
